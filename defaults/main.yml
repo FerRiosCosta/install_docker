@@ -1,0 +1,9 @@
+---
+docker_packages:
+  - "docker-ce"
+  - "docker-ce-cli"
+  - "docker-compose-plugin"
+  - "containerd.io"
+
+docker_yum_repo_url: "https://download.docker.com/linux/centos/docker-ce.repo"
+

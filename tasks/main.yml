@@ -1,0 +1,19 @@
+---
+- name: Adding docker-ce repo
+  ansible.builtin.get_url:
+    url: "{{ docker_yum_repo_url }}"
+    dest: '/etc/yum.repos.d/docker-ce.repo'
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Installing docker-ce
+  ansible.builtin.package:
+    name: "{{ docker_packages }}"
+    state: present
+
+- name: Starting and activating docker
+  ansible.builtin.service:
+    name: docker
+    state: started
+    enabled: true
